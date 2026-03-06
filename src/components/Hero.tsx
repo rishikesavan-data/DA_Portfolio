@@ -25,7 +25,7 @@ const useTypingEffect = (text: string, speed = 80, delay = 400) => {
 };
 
 const Hero = () => {
-  const { displayed, done } = useTypingEffect("Hi, I'm Rishi Kesavan", 70, 600);
+  const { displayed, done } = useTypingEffect("Hi, I'm Rishi", 70, 600);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient blobs */}
@@ -67,8 +67,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
         >
-          Data Analyst & Data Engineer — turning complex data into actionable insights
-          with SQL, Python, and Power BI.
+          Data Analyst — turning complex data into actionable insights
+          with SQL, Excel, Python, and Power BI.
         </motion.p>
 
         <motion.div
