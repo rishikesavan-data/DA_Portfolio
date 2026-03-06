@@ -1,8 +1,31 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download } from "lucide-react";
+import { useState, useEffect } from "react";
 import HeroCanvas from "./HeroCanvas";
 
+const useTypingEffect = (text: string, speed = 80, delay = 400) => {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+  useEffect(() => {
+    let i = 0;
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setDisplayed(text.slice(0, i + 1));
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          setDone(true);
+        }
+      }, speed);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [text, speed, delay]);
+  return { displayed, done };
+};
+
 const Hero = () => {
+  const { displayed, done } = useTypingEffect("Hi, I'm Rishi Kesavan", 70, 600);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient blobs */}
@@ -27,8 +50,15 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
         >
-          Hi, I'm{" "}
-          <span className="gradient-text">Rishi</span>
+          {displayed.includes("Rishi") ? (
+            <>
+              {displayed.slice(0, displayed.indexOf("Rishi"))}
+              <span className="gradient-text">{displayed.slice(displayed.indexOf("Rishi"))}</span>
+            </>
+          ) : (
+            displayed
+          )}
+          {!done && <span className="inline-block w-[3px] h-[0.8em] bg-primary ml-1 animate-pulse align-middle" />}
         </motion.h1>
 
         <motion.p
