@@ -1,35 +1,21 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 const profiles = [
+  {
+    platform: "LinkedIn",
+    username: "@rishi-kesavan",
+    link: "https://linkedin.com",
+    icon: Linkedin,
+    color: "from-sky-500 to-sky-600",
+  },
   {
     platform: "GitHub",
     username: "@rishi",
     link: "https://github.com",
     icon: Github,
     color: "from-foreground/80 to-foreground",
-  },
-  {
-    platform: "HackerRank",
-    username: "@rishi",
-    link: "https://hackerrank.com",
-    icon: ExternalLink,
-    color: "from-emerald-500 to-emerald-600",
-  },
-  {
-    platform: "LeetCode",
-    username: "@rishi",
-    link: "https://leetcode.com",
-    icon: ExternalLink,
-    color: "from-amber-500 to-amber-600",
-  },
-  {
-    platform: "Kaggle",
-    username: "@rishi",
-    link: "https://kaggle.com",
-    icon: ExternalLink,
-    color: "from-sky-500 to-sky-600",
   },
 ];
 
@@ -47,14 +33,14 @@ const CodingProfiles = () => {
           className="text-center mb-16"
         >
           <p className="text-sm tracking-widest uppercase text-muted-foreground mb-3">
-            My presence
+           Let's connect
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold">
-            Coding <span className="gradient-text">Profiles</span>
+            Find Me <span className="gradient-text">Online</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6 max-w-md mx-auto">
           {profiles.map((profile, i) => (
             <motion.a
               key={profile.platform}
