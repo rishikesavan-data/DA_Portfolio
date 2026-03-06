@@ -25,7 +25,7 @@ const useTypingEffect = (text: string, speed = 80, delay = 400) => {
 };
 
 const Hero = () => {
-  const { displayed, done } = useTypingEffect("Hi, I'm Rishi Kesavan", 70, 600);
+  const { displayed, done } = useTypingEffect("Hi, I'm Rishi", 70, 600);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient blobs */}

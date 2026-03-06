@@ -6,7 +6,6 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Connect", href: "#profiles" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -31,7 +30,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
         <a href="#" className="font-display text-xl font-bold gradient-text">
-          Rishi.
+          Rishi Kesavan
         </a>
 
         {/* Desktop */}

@@ -17,6 +17,7 @@ const skillGroups = [
     skills: [
       { name: "SQL", icon: Database },
       { name: "Python", icon: Code },
+      { name: "Excel", icon: FileSpreadsheet },
       { name: "Pandas", icon: Terminal },
       { name: "NumPy", icon: Terminal },
     ],
@@ -25,7 +26,6 @@ const skillGroups = [
     category: "Visualization",
     skills: [
       { name: "Power BI", icon: BarChart3 },
-      { name: "Excel", icon: FileSpreadsheet },
       { name: "Matplotlib", icon: LineChart },
     ],
   },
