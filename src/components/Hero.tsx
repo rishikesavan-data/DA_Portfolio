@@ -67,8 +67,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
         >
-          Data Analyst & Data Engineer — turning complex data into actionable insights
-          with SQL, Python, and Power BI.
+          Data Analyst — turning complex data into actionable insights
+          with SQL, Excel, Python, and Power BI.
         </motion.p>
 
         <motion.div
