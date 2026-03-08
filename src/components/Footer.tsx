@@ -1,10 +1,10 @@
 import { Github, Linkedin, Mail, Globe } from "lucide-react";
 
 const links = [
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Mail, href: "mailto:rishi@example.com", label: "Email" },
-  { icon: Globe, href: "#", label: "Portfolio" },
+  { icon: Linkedin, href: "https://linkedin.com/in/rishikesavan-data/", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/rishikesavan-data", label: "GitHub" },
+  { icon: Mail, href: "mailto:rishikesavan.data@gmail.com", label: "Email" },
+  //{ icon: Globe, href: "#", label: "Portfolio" },
 ];
 
 const Footer = () => (
@@ -20,7 +20,7 @@ const Footer = () => (
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary hover:-translate-y-0.5 transition-all"
+            className="text-foreground hover:text-primary hover:-translate-y-0.5 transition-all"
             aria-label={link.label}
           >
             <link.icon size={20} />

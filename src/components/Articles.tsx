@@ -60,7 +60,7 @@ const Articles = () => {
                 </h3>
                 <ArrowUpRight
                   size={18}
-                  className="text-muted-foreground group-hover:text-primary transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 flex-shrink-0 mt-1"
+                  className="text-foreground group-hover:text-primary transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 flex-shrink-0 mt-1"
                 />
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">

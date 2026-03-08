@@ -68,7 +68,7 @@ const Hero = () => {
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
         >
           Data Analyst — turning complex data into actionable insights
-          with SQL, Excel, Python, and Power BI.
+          with SQL, Excel and Power BI.
         </motion.p>
 
         <motion.div
@@ -99,7 +99,7 @@ const Hero = () => {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <a href="#about" className="text-muted-foreground animate-float block">
+          <a href="#about" className="text-muted-foreground dark:text-foreground animate-float block">
             <ArrowDown size={20} />
           </a>
         </motion.div>

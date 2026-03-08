@@ -16,17 +16,17 @@ const skillGroups = [
     category: "Data Analysis",
     skills: [
       { name: "SQL", icon: Database },
-      { name: "Python", icon: Code },
+      { name: "Python (Basic)", icon: Code },
       { name: "Excel", icon: FileSpreadsheet },
-      { name: "Pandas", icon: Terminal },
-      { name: "NumPy", icon: Terminal },
+      // { name: "Pandas", icon: Terminal },
+      // { name: "NumPy", icon: Terminal },
     ],
   },
   {
     category: "Visualization",
     skills: [
       { name: "Power BI", icon: BarChart3 },
-      { name: "Matplotlib", icon: LineChart },
+      //{ name: "Matplotlib", icon: LineChart },
     ],
   },
   {
@@ -34,7 +34,7 @@ const skillGroups = [
     skills: [
       { name: "Git", icon: GitBranch },
       { name: "GitHub", icon: GitBranch },
-      { name: "Jupyter", icon: BookOpen },
+      //{ name: "Jupyter", icon: BookOpen },
     ],
   },
 ];
@@ -80,7 +80,7 @@ const Skills = () => {
                     <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <skill.icon
                         size={18}
-                        className="text-primary group-hover:rotate-12 transition-transform"
+                        className="text-primary dark:text-foreground group-hover:rotate-12 transition-transform"
                       />
                     </div>
                     <span className="text-sm font-medium">{skill.name}</span>

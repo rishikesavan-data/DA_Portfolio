@@ -73,6 +73,11 @@ const Projects = () => {
               onClick={() => setSelected(i)}
               className="glass-panel p-8 cursor-pointer group hover-lift glow-border"
             >
+              <div className="mb-5 h-40 rounded-2xl bg-gradient-to-br from-primary/20 via-primary/5 to-background overflow-hidden flex items-center justify-center">
+                <span className="text-lg font-semibold text-primary/90 text-center px-6 leading-snug">
+                  {project.title}
+                </span>
+              </div>
               <h3 className="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
@@ -93,14 +98,14 @@ const Projects = () => {
                 <a
                   href={project.github}
                   onClick={(e) => e.stopPropagation()}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground dark:text-foreground hover:text-foreground transition-colors"
                 >
                   <Github size={18} />
                 </a>
                 <a
                   href={project.live}
                   onClick={(e) => e.stopPropagation()}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground dark:text-foreground hover:text-foreground transition-colors"
                 >
                   <ExternalLink size={18} />
                 </a>

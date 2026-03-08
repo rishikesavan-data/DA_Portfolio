@@ -4,29 +4,29 @@ import { Award, ExternalLink } from "lucide-react";
 
 const certifications = [
   {
-    title: "Google Data Analytics Professional Certificate",
-    issuer: "Google",
-    date: "2024",
-    link: "#",
+    title: "Deloitte Australia - Data Analytics Job Simulation",
+    issuer: "Forage",
+    date: "2026",
+    link: "/images/Deloitte Australia - Data Analytics Job Simulation certificate.pdf",
   },
   {
-    title: "Microsoft Power BI Data Analyst",
-    issuer: "Microsoft",
+    title: "Certificate Course on Data Analytics (under Infosys Foundation Finishing School for Employability Program)",
+    issuer: "Infosys Foundation and ICT Academy",
     date: "2024",
-    link: "#",
+    link: "/images/Infosys Foundation and ICT Academy Data Analytics Course.pdf",
   },
-  {
+  /*{
     title: "SQL for Data Science",
     issuer: "Coursera",
     date: "2023",
-    link: "#",
+    link: "https://www.coursera.org/account/accomplishments/certificate/your-sql-for-data-science-id",
   },
   {
     title: "Python for Data Analysis",
     issuer: "DataCamp",
     date: "2023",
-    link: "#",
-  },
+    link: "https://www.datacamp.com/statement-of-accomplishment/your-python-for-data-analysis-id",
+  },*/
 ];
 
 const Certifications = () => {
@@ -64,7 +64,7 @@ const Certifications = () => {
               className="glass-panel p-6 group glow-border flex items-start gap-4"
             >
               <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                <Award size={20} className="text-primary" />
+                <Award size={20} className="text-primary dark:text-foreground" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-display text-sm font-semibold mb-1 leading-snug">
@@ -76,7 +76,7 @@ const Certifications = () => {
               </div>
               <ExternalLink
                 size={14}
-                className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity mt-1 shrink-0"
+                className="text-foreground opacity-0 group-hover:opacity-100 transition-opacity mt-1 shrink-0"
               />
             </motion.a>
           ))}

@@ -2,17 +2,19 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, User, MessageSquare, Github, Linkedin } from "lucide-react";
 
+const CONTACT_EMAIL = "rishikesavan.data@gmail.com"; // TODO: replace with your real email
+
 const socials = [
   {
     platform: "LinkedIn",
-    username: "@rishi-kesavan",
-    link: "https://linkedin.com",
+    username: "@Rishi Kesavan",
+    link: "https://www.linkedin.com/in/rishikesavan-data/",
     icon: Linkedin,
   },
   {
     platform: "GitHub",
-    username: "@rishi",
-    link: "https://github.com",
+    username: "@Rishi Kesavan",
+    link: "https://github.com/rishikesavan-data",
     icon: Github,
   },
 ];
@@ -25,6 +27,14 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const subject = encodeURIComponent(`New message from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`,
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
     setForm({ name: "", email: "", message: "" });
@@ -57,7 +67,7 @@ const Contact = () => {
             className="glass-panel p-8 space-y-5"
           >
             <div className="relative">
-              <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground" />
               <input
                 type="text"
                 placeholder="Your Name"
@@ -69,7 +79,7 @@ const Contact = () => {
               />
             </div>
             <div className="relative">
-              <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground" />
               <input
                 type="email"
                 placeholder="Your Email"
@@ -81,7 +91,7 @@ const Contact = () => {
               />
             </div>
             <div className="relative">
-              <MessageSquare size={16} className="absolute left-4 top-4 text-muted-foreground" />
+              <MessageSquare size={16} className="absolute left-4 top-4 text-foreground" />
               <textarea
                 placeholder="Your Message"
                 required
