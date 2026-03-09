@@ -42,7 +42,7 @@ const timeline = [
   },
   {
 
-    date: "Nov 2021 - Sep 2025",
+    date: "Nov 2021 - Sept 2025",
     category: "Education",
     title: "Bachelor of Technology in Information Technology",
     issuedBy: "Misrimal Navajee Munoth Jain Engineering College (Affiliated to Anna University)",
@@ -52,7 +52,7 @@ const timeline = [
     //skills: ["Power BI", "Data Visualization"],
   },
   {
-    date: "Aug 2024 - Sep 2024",
+    date: "Aug 2024 - Sept 2024",
     category: "Certification",
     title: "Data Analytics Course",
     issuedBy: "Infosys & ICT Academy",

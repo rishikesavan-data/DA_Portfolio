@@ -4,14 +4,14 @@ import { Github, Linkedin, X } from "lucide-react";
 
 const projects = [
   {
-    title: "Sales Performance Analysis Dashboard",
-    startDate: "Jan 2024",
-    endDate: "Mar 2024",
+    title: "Superstore Sales Performance Analysis",
+    startDate: "Nov 2025",
+    endDate: "Dec 2025",
     description:
-      "Interactive Power BI dashboard analyzing sales trends across regions with drill-down capabilities.",
-    tech: ["Power BI", "SQL", "DAX"],
-    github: "#",
-    linkedin: "#",
+      "Analyzed 9,994 retail orders using SQL & Power BI to uncover $2.3M in revenue and $286K in profit — while identifying $213K in avoidable losses driven by over-discounting, returns, and unprofitable products. Turned four years of raw sales data into clear business decisions.",
+    tech: ["MySQL", "Excel", "Power BI", "DAX", "Power Query", "Data Cleaning", "Data Analysis", "EDA", "Data Visualization"],
+    github: "https://github.com/rishikesavan-data/Superstore-Sales-Perfomance-Analysis",
+    linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7411401154628251648/?originTrackingId=nQl9ZQhPU0XW%2Fe5Gvz1z7w%3D%3D",
     dataset: "Kaggle - Superstore Sales Dataset",
   },
   {
