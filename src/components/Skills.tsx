@@ -9,6 +9,13 @@ import {
   FileSpreadsheet,
   LineChart,
   BookOpen,
+  Bot,
+  Sparkles,
+  Command,
+  MonitorSmartphone,
+  Cpu,
+  Heart,
+  Monitor,
 } from "lucide-react";
 
 const skillGroups = [
@@ -34,7 +41,21 @@ const skillGroups = [
     skills: [
       { name: "Git", icon: GitBranch },
       { name: "GitHub", icon: GitBranch },
+      { name: "VS Code", icon: Terminal },
+      { name: "PyCharm", icon: Terminal },
+      //{ name: "Cursor", icon: Terminal },
       //{ name: "Jupyter", icon: BookOpen },
+    ],
+  },
+  {
+    category: "AI Tools",
+    skills: [
+      { name: "ChatGPT", icon: Bot },
+      { name: "Claude", icon: Command },
+      { name: "Gemini", icon: Sparkles },
+      { name: "Lovable", icon: Heart },
+      { name: "Cursor", icon: Monitor },
+      { name: "Antigravity", icon: Monitor },
     ],
   },
 ];
@@ -60,7 +81,7 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillGroups.map((group, gi) => (
             <motion.div
               key={group.category}
@@ -75,15 +96,13 @@ const Skills = () => {
                 {group.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="glass-panel p-4 flex items-center gap-3 hover-lift glow-border group cursor-default"
+                    className="glass-panel h-20 flex flex-col items-center justify-center gap-2 hover-lift glow-border group cursor-default"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <skill.icon
-                        size={18}
-                        className="text-primary dark:text-foreground group-hover:rotate-12 transition-transform"
-                      />
-                    </div>
-                    <span className="text-sm font-medium">{skill.name}</span>
+                    <skill.icon
+                      size={24}
+                      className="text-primary dark:text-foreground group-hover:rotate-12 transition-transform"
+                    />
+                    <span className="text-xs font-medium text-center">{skill.name}</span>
                   </div>
                 ))}
               </div>

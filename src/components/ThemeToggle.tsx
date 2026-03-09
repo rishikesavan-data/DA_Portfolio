@@ -4,7 +4,6 @@ import { Switch } from "./ui/switch";
 import {
   applyTheme,
   isDaytime,
-  setStoredTheme,
   type ThemeMode,
 } from "@/lib/theme-utils";
 
@@ -19,9 +18,20 @@ const ThemeToggle = () => {
   }, []);
 
   useEffect(() => {
+    // Listen for sync events from other toggle instances
+    const handleSync = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      const { newMode, newIsDark } = customEvent.detail;
+      setMode(newMode);
+      setIsDark(newIsDark);
+    };
+    window.addEventListener("sync-theme-toggle", handleSync);
+
     // Always start in Auto mode by default
     setMode("auto");
     updateFromAuto();
+
+    return () => window.removeEventListener("sync-theme-toggle", handleSync);
   }, [updateFromAuto]);
 
   useEffect(() => {
@@ -31,16 +41,30 @@ const ThemeToggle = () => {
   }, [mode, updateFromAuto]);
 
   const handleToggle = (checked: boolean) => {
+    const newMode = checked ? "dark" : "light";
     setIsDark(checked);
-    setMode(checked ? "dark" : "light");
-    setStoredTheme(checked ? "dark" : "light");
+    setMode(newMode);
     applyTheme(checked);
+    
+    // Sync other instances
+    window.dispatchEvent(
+      new CustomEvent("sync-theme-toggle", {
+        detail: { newMode, newIsDark: checked },
+      })
+    );
   };
 
   const handleAuto = () => {
     setMode("auto");
-    setStoredTheme("auto");
     updateFromAuto();
+    
+    // Update other instances to auto mode
+    const day = isDaytime();
+    window.dispatchEvent(
+      new CustomEvent("sync-theme-toggle", {
+        detail: { newMode: "auto", newIsDark: !day },
+      })
+    );
   };
 
   return (

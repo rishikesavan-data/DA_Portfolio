@@ -7,6 +7,8 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Certifications", href: "#certifications" },
+  { label: "Timeline", href: "#timeline" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -25,13 +27,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-navbar shadow-sm" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass-navbar shadow-sm" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
         <a href="#" className="font-display text-xl font-bold gradient-text">
-          Rishi Kesavan
+          Rishi Kesavan R
         </a>
 
         {/* Desktop */}

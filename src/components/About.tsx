@@ -8,19 +8,19 @@ const cards = [
     icon: User,
     title: "Who I Am",
     description:
-      "A passionate Data Analyst with a keen eye for patterns and a commitment to transforming raw data into meaningful business insights.",
+      "I’m a Data Analyst with a background in Information Technology who enjoys working with data to understand patterns and extract useful insights from datasets.",
   },
   {
     icon: Target,
     title: "What I Do",
     description:
-      "I design data pipelines, build interactive dashboards, and create analytical models that drive data-informed decision making.",
+      "I use SQL, Excel, and Power BI to clean, explore, and analyze datasets. I also build dashboards that organize data in a clear way and help highlight important information.",
   },
   {
     icon: Zap,
     title: "What I Focus On",
     description:
-      "End-to-end analytics — from data extraction and cleaning to visualization and storytelling that resonates with stakeholders.",
+      "I focus on practical data analysis — preparing datasets, exploring data to identify patterns, and building dashboards that clearly present the results of the analysis.",
   },
 ];
 
@@ -66,6 +66,17 @@ const About = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-6 w-full text-center glass-panel p-6 glow-border"
+        >
+          <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+            ⚡ <span className="font-semibold text-foreground text-base">AI-Augmented Workflow</span> — I actively use AI tools to accelerate my analytics process: query optimization, faster debugging, smarter documentation, and sharper problem framing. Less time on repetition. More time on thinking.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

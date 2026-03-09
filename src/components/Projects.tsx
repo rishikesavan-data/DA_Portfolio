@@ -1,42 +1,50 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink, Github, X } from "lucide-react";
+import { Github, Linkedin, X } from "lucide-react";
 
 const projects = [
   {
-    title: "Sales Dashboard",
+    title: "Sales Performance Analysis Dashboard",
+    startDate: "Jan 2024",
+    endDate: "Mar 2024",
     description:
       "Interactive Power BI dashboard analyzing sales trends across regions with drill-down capabilities.",
     tech: ["Power BI", "SQL", "DAX"],
     github: "#",
-    live: "#",
-    dataset: "Kaggle Sales Dataset",
+    linkedin: "#",
+    dataset: "Kaggle - Superstore Sales Dataset",
   },
   {
-    title: "Customer Churn Prediction",
+    title: "Telco Customer Churn Analysis",
+    startDate: "Jun 2023",
+    endDate: "Aug 2023",
     description:
       "ML model predicting customer churn with 92% accuracy using Python and scikit-learn.",
     tech: ["Python", "Pandas", "Scikit-learn"],
     github: "#",
-    live: "#",
-    dataset: "Telco Customer Churn",
+    linkedin: "#",
+    dataset: "Telco Customer Churn Dataset",
   },
   {
     title: "ETL Pipeline",
+    startDate: "Feb 2022",
+    endDate: "May 2022",
     description:
       "Automated data pipeline extracting, transforming, and loading data from multiple sources into a data warehouse.",
     tech: ["Python", "SQL", "Airflow"],
     github: "#",
-    live: "#",
+    linkedin: "#",
     dataset: "Internal Dataset",
   },
   {
     title: "COVID-19 Data Analysis",
+    startDate: "Sep 2021",
+    endDate: "Dec 2021",
     description:
       "Comprehensive analysis and visualization of global COVID-19 trends using Python and Tableau.",
     tech: ["Python", "Tableau", "Pandas"],
     github: "#",
-    live: "#",
+    linkedin: "#",
     dataset: "Johns Hopkins CSSE",
   },
 ];
@@ -45,6 +53,12 @@ const Projects = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [selected, setSelected] = useState<number | null>(null);
+
+  const sortedProjects = [...projects].sort((a, b) => {
+    const dateA = a.endDate === "Present" ? new Date() : new Date(a.endDate);
+    const dateB = b.endDate === "Present" ? new Date() : new Date(b.endDate);
+    return dateB.getTime() - dateA.getTime();
+  });
 
   return (
     <section id="projects" className="section-padding relative" ref={ref}>
@@ -64,7 +78,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, i) => (
+          {sortedProjects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -78,9 +92,14 @@ const Projects = () => {
                   {project.title}
                 </span>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
+              <div className="flex justify-between items-start mb-3 gap-4">
+                <h3 className="font-display text-xl font-semibold group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <span className="text-sm font-medium text-primary shrink-0 bg-primary/10 px-2.5 py-0.5 rounded-full">
+                  {project.startDate} - {project.endDate}
+                </span>
+              </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                 {project.description}
               </p>
@@ -103,11 +122,11 @@ const Projects = () => {
                   <Github size={18} />
                 </a>
                 <a
-                  href={project.live}
+                  href={project.linkedin}
                   onClick={(e) => e.stopPropagation()}
                   className="text-muted-foreground dark:text-foreground hover:text-foreground transition-colors"
                 >
-                  <ExternalLink size={18} />
+                  <Linkedin size={18} />
                 </a>
               </div>
             </motion.div>
@@ -136,18 +155,23 @@ const Projects = () => {
             >
               <X size={20} />
             </button>
-            <h3 className="font-display text-2xl font-bold mb-4">
-              {projects[selected].title}
-            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-4 pr-6">
+              <h3 className="font-display text-2xl font-bold">
+                {sortedProjects[selected].title}
+              </h3>
+              <span className="text-sm font-medium text-primary self-start shrink-0 bg-primary/10 px-3 py-1 rounded-full">
+                {sortedProjects[selected].startDate} - {sortedProjects[selected].endDate}
+              </span>
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              {projects[selected].description}
+              {sortedProjects[selected].description}
             </p>
             <p className="text-xs text-muted-foreground mb-4">
               <span className="font-medium text-foreground">Dataset:</span>{" "}
-              {projects[selected].dataset}
+              {sortedProjects[selected].dataset}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
-              {projects[selected].tech.map((t) => (
+              {sortedProjects[selected].tech.map((t) => (
                 <span
                   key={t}
                   className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium"
@@ -158,16 +182,16 @@ const Projects = () => {
             </div>
             <div className="flex gap-4">
               <a
-                href={projects[selected].github}
+                href={sortedProjects[selected].github}
                 className="px-6 py-2.5 rounded-full bg-foreground text-background text-sm font-medium hover-lift flex items-center gap-2"
               >
                 <Github size={16} /> GitHub
               </a>
               <a
-                href={projects[selected].live}
+                href={sortedProjects[selected].linkedin}
                 className="px-6 py-2.5 rounded-full glass-panel text-sm font-medium hover-lift flex items-center gap-2 text-foreground"
               >
-                <ExternalLink size={16} /> Live Demo
+                <Linkedin size={16} /> LinkedIn
               </a>
             </div>
           </motion.div>

@@ -28,12 +28,13 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const subject = encodeURIComponent(`New message from ${form.name}`);
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`,
     );
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${CONTACT_EMAIL}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, "_blank");
 
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);

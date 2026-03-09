@@ -1,7 +1,38 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download } from "lucide-react";
 import { useState, useEffect } from "react";
-import HeroCanvas from "./HeroCanvas";
+
+const RadarPulse = () => {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+      {[0, 1, 2, 3].map((i) => (
+        <svg
+          key={i}
+          className={`absolute animate-radar
+            ${i % 2 === 0 ? 'text-indigo-600 dark:text-blue-500' : 'text-purple-600 dark:text-purple-500'}
+          `}
+          style={{
+            width: '150vmax',
+            height: '150vmax',
+            animationDelay: `-${i * 4}s`,
+          }}
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="49"
+            stroke="currentColor"
+            strokeWidth="1"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+      ))}
+    </div>
+  );
+};
 
 const useTypingEffect = (text: string, speed = 80, delay = 400) => {
   const [displayed, setDisplayed] = useState("");
@@ -28,11 +59,7 @@ const Hero = () => {
   const { displayed, done } = useTypingEffect("Hi, I'm Rishi", 70, 600);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Gradient blobs */}
-      <div className="gradient-blob w-[500px] h-[500px] bg-primary/20 top-[-100px] left-[-100px]" />
-      <div className="gradient-blob w-[400px] h-[400px] bg-accent/20 bottom-[-50px] right-[-50px]" />
-
-      <HeroCanvas />
+      <RadarPulse />
 
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <motion.p
