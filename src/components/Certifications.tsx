@@ -7,20 +7,20 @@ const certifications = [
     title: "Deloitte Australia - Data Analytics Job Simulation",
     issuer: "Forage",
     date: "Jan 2026",
-    link: "/images/Deloitte Australia - Data Analytics Job Simulation certificate.pdf",
+    link: "/Certificate Pdf/Deloitte Australia - Data Analytics Job Simulation certificate.pdf",
   },
   {
     title: "Certificate Course on Data Analytics (under Infosys Foundation Finishing School for Employability Program)",
     issuer: "Infosys Foundation and ICT Academy",
     date: "Aug 2024 - Sep 2024",
-    link: "/images/Infosys Foundation and ICT Academy Data Analytics Course.pdf",
+    link: "/Certificate Pdf/Infosys Foundation and ICT Academy Data Analytics Course.pdf",
   },
   {
     title: "Introduction to Web Development",
     issuer: "Coursera",
     date: "Jul 2023",
     websiteLink: "https://www.coursera.org/account/accomplishments/verify/H6JXJCD5ZUVS",
-    certificatePdf: "/images/Coursera - Introduction to Web Development Certificate.pdf",
+    certificatePdf: "/Certificate Pdf/Coursera - Introduction to Web Development Certificate.pdf",
   },
   /*{
     title: "Python for Data Analysis",

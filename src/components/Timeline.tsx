@@ -40,6 +40,7 @@ const timeline = [
       "Analyzed 9,994 retail orders using SQL & Power BI to uncover $2.3M in revenue and $286K in profit — while identifying $213K in avoidable losses driven by over-discounting, returns, and unprofitable products. Turned four years of raw sales data into clear business decisions.",
     skills: ["MySQL", "Excel", "Power BI", "DAX", "Power Query", "Data Cleaning", "Data Analysis", "EDA", "Data Visualization"],
   },
+
   {
 
     date: "Nov 2021 - Sept 2025",
@@ -50,6 +51,16 @@ const timeline = [
       "Completed a structured undergraduate curriculum covering core computer science and information technology subjects.",
       "The program emphasized theoretical understanding and academic assessments aligned with university standards."],
     //skills: ["Power BI", "Data Visualization"],
+  },
+  {
+
+    date: "Jun 2025 - Jul 2025",
+    category: "Project",
+    title: "Awesome Chocolates Dashboard",
+    issuedBy: "Guided Project",
+    description:
+      "This Power BI dashboard analyzes the sales performance of a fictional brand, Awesome Chocolates, using data from a MySQL database. Built as part of my learning journey through Chandoo’s Free Data Analyst course on YouTube.",
+    skills: ["Power BI Desktop", "Power Query (for data cleaning)", "DAX (for custom KPIs)", "MySQL (connected as backend)"],
   },
   {
     date: "Aug 2024 - Sept 2024",

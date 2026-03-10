@@ -111,7 +111,7 @@ const Hero = () => {
             View Projects
           </a>
           <a
-            href="/resume.pdf"
+            href="/Resume/Rishi Kesavan_Data_Analyst_Resume.docx"
             download
             className="px-8 py-3.5 rounded-full glass-panel font-medium text-sm hover-lift flex items-center gap-2 text-foreground"
           >
