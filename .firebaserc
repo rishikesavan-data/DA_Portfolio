@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "da-portfolio-b8248"
+  },
+  "targets": {
+    "da-portfolio-b8248": {
+      "hosting": {
+        "rishikesavan": [
+          "rishikesavan"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
