@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Database,
   Code,
@@ -25,26 +26,21 @@ const skillGroups = [
       { name: "SQL", icon: Database },
       { name: "Python (Basic)", icon: Code },
       { name: "Excel", icon: FileSpreadsheet },
-      // { name: "Pandas", icon: Terminal },
-      // { name: "NumPy", icon: Terminal },
     ],
   },
   {
     category: "Visualization",
     skills: [
       { name: "Power BI", icon: BarChart3 },
-      //{ name: "Matplotlib", icon: LineChart },
     ],
   },
   {
     category: "Tools",
     skills: [
-      { name: "Git", icon: GitBranch },
+      //{ name: "Git", icon: GitBranch },
       { name: "GitHub", icon: GitBranch },
       { name: "VS Code", icon: Terminal },
       { name: "PyCharm", icon: Terminal },
-      //{ name: "Cursor", icon: Terminal },
-      //{ name: "Jupyter", icon: BookOpen },
     ],
   },
   {
@@ -63,6 +59,7 @@ const skillGroups = [
 const Skills = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const isMobile = useIsMobile();
 
   return (
     <section id="skills" className="section-padding relative" ref={ref}>
@@ -92,17 +89,17 @@ const Skills = () => {
               <h3 className="font-display text-lg font-semibold mb-5 text-muted-foreground">
                 {group.category}
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 md:grid-cols-2 gap-3">
                 {group.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="glass-panel h-20 flex flex-col items-center justify-center gap-2 hover-lift glow-border group cursor-default"
+                    className="glass-panel h-16 md:h-20 flex flex-col items-center justify-center gap-1 md:gap-2 hover-lift glow-border group cursor-default"
                   >
                     <skill.icon
-                      size={24}
+                      size={isMobile ? 18 : 24}
                       className="text-primary dark:text-foreground group-hover:rotate-12 transition-transform"
                     />
-                    <span className="text-xs font-medium text-center">{skill.name}</span>
+                    <span className="text-[10px] md:text-xs font-medium text-center">{skill.name}</span>
                   </div>
                 ))}
               </div>

@@ -11,10 +11,25 @@ const ThemeToggle = () => {
   const [mode, setMode] = useState<ThemeMode>("auto");
   const [isDark, setIsDark] = useState(false);
 
-  const updateFromAuto = useCallback(() => {
+  const updateFromAuto = useCallback((silent = false) => {
     const day = isDaytime();
-    setIsDark(!day);
-    applyTheme(!day);
+    const shouldBeDark = !day;
+    
+    setIsDark((prev) => {
+      if (prev !== shouldBeDark) {
+        applyTheme(shouldBeDark);
+        // Sync other toggles if this update happened automatically
+        if (!silent) {
+          window.dispatchEvent(
+            new CustomEvent("sync-theme-toggle", {
+              detail: { newMode: "auto", newIsDark: shouldBeDark },
+            })
+          );
+        }
+        return shouldBeDark;
+      }
+      return prev;
+    });
   }, []);
 
   useEffect(() => {
@@ -27,16 +42,16 @@ const ThemeToggle = () => {
     };
     window.addEventListener("sync-theme-toggle", handleSync);
 
-    // Always start in Auto mode by default
-    setMode("auto");
-    updateFromAuto();
+    // Initial check on mount
+    updateFromAuto(true);
 
     return () => window.removeEventListener("sync-theme-toggle", handleSync);
   }, [updateFromAuto]);
 
   useEffect(() => {
     if (mode !== "auto") return;
-    const id = setInterval(updateFromAuto, 60_000);
+    // Check every second to ensure real-time transition at threshold hour
+    const id = setInterval(() => updateFromAuto(false), 1000);
     return () => clearInterval(id);
   }, [mode, updateFromAuto]);
 
@@ -56,13 +71,15 @@ const ThemeToggle = () => {
 
   const handleAuto = () => {
     setMode("auto");
-    updateFromAuto();
+    const day = isDaytime();
+    const shouldBeDark = !day;
+    setIsDark(shouldBeDark);
+    applyTheme(shouldBeDark);
     
     // Update other instances to auto mode
-    const day = isDaytime();
     window.dispatchEvent(
       new CustomEvent("sync-theme-toggle", {
-        detail: { newMode: "auto", newIsDark: !day },
+        detail: { newMode: "auto", newIsDark: shouldBeDark },
       })
     );
   };

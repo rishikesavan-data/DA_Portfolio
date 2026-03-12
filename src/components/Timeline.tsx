@@ -177,6 +177,13 @@ const Timeline = () => {
     </div>
   );
 
+  // Consolidated mobile tap handler to prevent double-firing/flicker
+  const handleMobileToggle = (e: React.TouchEvent | React.MouseEvent, index: number) => {
+    // Stop propagation to ensure the event doesn't bubble to the backdrop
+    e.stopPropagation();
+    setHoveredIndex(hoveredIndex === index ? null : index);
+  };
+
   return (
     <section id="timeline" className="section-padding relative" ref={ref}>
       <div className="max-w-5xl mx-auto">
@@ -219,60 +226,72 @@ const Timeline = () => {
             </div>
 
             {/* Timeline window */}
-            <div className="w-full h-[480px] relative overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_2%,black_98%,transparent)] rounded-xl border border-border/20 bg-background/50">
+            <div className="w-full h-[480px] relative overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_2%,black_98%,transparent)] rounded-xl bg-background/50">
               {/* Mobile Overlay Description */}
               <AnimatePresence>
                 {hoveredIndex !== null && isMobile && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    className="absolute inset-0 z-50 bg-background p-6 flex flex-col overflow-y-auto"
-                  >
-                    <button
+                  <>
+                    {/* Internal Backdrop */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
                       onClick={() => setHoveredIndex(null)}
-                      className="absolute top-4 right-4 p-2 rounded-full bg-muted/50 text-foreground"
-                    >
-                      <X size={20} />
-                    </button>
+                      className="absolute inset-0 z-40 bg-background/60 backdrop-blur-[2px]"
+                    />
                     
-                    {(() => {
-                      const item = sortedTimeline[hoveredIndex];
-                      return (
-                        <>
-                          <p className="text-xs font-medium text-primary mb-1">{item.category}</p>
-                          <h3 className="font-display text-xl font-bold mb-1 pr-10">{item.title}</h3>
-                          <p className="text-sm font-semibold text-blue-500 mb-2">{item.issuedBy}</p>
-                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-6">{item.date}</p>
-                          
-                          <div className="text-sm text-muted-foreground leading-relaxed mb-6">
-                            {Array.isArray(item.description) ? (
-                              <ul className="list-disc pl-4 space-y-2">
-                                {item.description.map((desc, i) => (
-                                  <li key={i}>{desc}</li>
-                                ))}
-                              </ul>
-                            ) : (
-                              <p>{item.description}</p>
-                            )}
-                          </div>
-                          
-                          {item.skills && (
-                            <div className="flex flex-wrap gap-2 mt-auto pt-4">
-                              {item.skills.map((skill) => (
-                                <span
-                                  key={skill}
-                                  className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
-                                >
-                                  {skill}
-                                </span>
-                              ))}
+                    {/* Popup Panel */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95, y: "-50%" }}
+                      animate={{ opacity: 1, scale: 1, y: "-50%" }}
+                      exit={{ opacity: 0, scale: 0.95, y: "-50%" }}
+                      className="absolute left-4 right-4 top-1/2 -translate-y-1/2 z-50 bg-background p-5 rounded-xl border border-border/60 shadow-2xl flex flex-col h-auto max-h-[92%]"
+                    >
+                      <button
+                        onClick={() => setHoveredIndex(null)}
+                        className="absolute top-4 right-4 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors z-10"
+                      >
+                        <X size={20} />
+                      </button>
+                      
+                      <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                        {(() => {
+                          const item = sortedTimeline[hoveredIndex];
+                          return (
+                            <div className="flex flex-col">
+                              <h3 className="font-display text-lg font-bold mb-1 pr-10 text-foreground">{item.title}</h3>
+                              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-4">{item.date}</p>
+                              
+                              <div className="text-sm text-muted-foreground leading-relaxed mb-6">
+                                {Array.isArray(item.description) ? (
+                                  <ul className="list-disc pl-4 space-y-1.5">
+                                    {item.description.map((desc, i) => (
+                                      <li key={i}>{desc}</li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <p>{item.description}</p>
+                                )}
+                              </div>
+                              
+                              {item.skills && (
+                                <div className="flex flex-wrap gap-1.5 mt-auto pt-4">
+                                  {item.skills.map((skill) => (
+                                    <span
+                                      key={skill}
+                                      className="px-2.5 py-1 rounded-full bg-primary/15 text-primary text-[10px] font-medium"
+                                    >
+                                      {skill}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                          )}
-                        </>
-                      );
-                    })()}
-                  </motion.div>
+                          );
+                        })()}
+                      </div>
+                    </motion.div>
+                  </>
                 )}
               </AnimatePresence>
               <motion.div
@@ -303,11 +322,11 @@ const Timeline = () => {
                             {/* Left side */}
                             <div className={`w-1/2 ${isLeft ? "pr-4" : "pl-4"}`}>
                               {isLeft && (
-                                <div
-                                  className="text-right flex justify-end"
-                                  onTouchStart={() => setHoveredIndex(hoveredIndex === globalIndex ? null : globalIndex)}
+                                <div 
+                                  className="text-right flex justify-end cursor-pointer"
+                                  onClick={(e) => handleMobileToggle(e, globalIndex)}
                                 >
-                                  <div className="inline-block">
+                                  <div className="inline-block pointer-events-none">
                                     <p className="text-[10px] font-medium text-muted-foreground mb-1">{item.category}</p>
                                     <h3 className="text-xs font-semibold text-foreground leading-snug max-w-[120px] ml-auto">{item.title}</h3>
                                     <p className="text-[10px] font-medium text-blue-500 mt-0.5">{item.issuedBy}</p>
@@ -322,21 +341,23 @@ const Timeline = () => {
                               <div
                                 className="w-4 h-4 rounded-full border-4 border-background shadow-md transition-all duration-200 cursor-pointer relative z-20 group-hover:scale-125"
                                 style={{ backgroundColor: circleColorHex }}
-                                onTouchStart={() => setHoveredIndex(hoveredIndex === globalIndex ? null : globalIndex)}
+                                onClick={(e) => handleMobileToggle(e, globalIndex)}
                               />
                             </div>
 
                             {/* Right side */}
                             <div className={`w-1/2 ${!isLeft ? "pl-4" : "pr-4"}`}>
                               {!isLeft && (
-                                <div
-                                  className="text-left inline-block"
-                                  onTouchStart={() => setHoveredIndex(hoveredIndex === globalIndex ? null : globalIndex)}
+                                <div 
+                                  className="text-left inline-block cursor-pointer"
+                                  onClick={(e) => handleMobileToggle(e, globalIndex)}
                                 >
-                                  <p className="text-[10px] font-medium text-muted-foreground mb-1">{item.category}</p>
-                                  <h3 className="text-xs font-semibold text-foreground leading-snug max-w-[120px]">{item.title}</h3>
-                                  <p className="text-[10px] font-medium text-blue-500 mt-0.5">{item.issuedBy}</p>
-                                  <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mt-0.5">{item.date}</p>
+                                  <div className="inline-block pointer-events-none">
+                                    <p className="text-[10px] font-medium text-muted-foreground mb-1">{item.category}</p>
+                                    <h3 className="text-xs font-semibold text-foreground leading-snug max-w-[120px]">{item.title}</h3>
+                                    <p className="text-[10px] font-medium text-blue-500 mt-0.5">{item.issuedBy}</p>
+                                    <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mt-0.5">{item.date}</p>
+                                  </div>
                                 </div>
                               )}
                             </div>

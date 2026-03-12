@@ -12,8 +12,8 @@ const RadarPulse = () => {
             ${i % 2 === 0 ? 'text-indigo-600 dark:text-blue-500' : 'text-purple-600 dark:text-purple-500'}
           `}
           style={{
-            width: '150vmax',
-            height: '150vmax',
+            width: '120vmax',
+            height: '120vmax',
             animationDelay: `-${i * 4}s`,
           }}
           viewBox="0 0 100 100"
@@ -58,7 +58,7 @@ const useTypingEffect = (text: string, speed = 80, delay = 400) => {
 const Hero = () => {
   const { displayed, done } = useTypingEffect("Hi, I'm Rishi", 70, 600);
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen pt-16 flex items-center justify-center overflow-hidden">
       <RadarPulse />
 
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">

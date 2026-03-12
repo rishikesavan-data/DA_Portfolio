@@ -18,7 +18,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handler);
+    // Call handler immediately to sync state on mount
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
@@ -81,12 +83,19 @@ const Navbar = () => {
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      const target = document.querySelector(item.href);
-                      if (target) {
-                        target.scrollIntoView({ behavior: "smooth" });
-                      }
-                      // Delay closing slightly to allow scroll to start
-                      setTimeout(() => setMobileOpen(false), 300);
+                      setMobileOpen(false);
+                      
+                      setTimeout(() => {
+                        const target = document.querySelector(item.href);
+                        if (target) {
+                          const navbarHeight = 64;
+                          const targetPosition = window.scrollY + target.getBoundingClientRect().top - navbarHeight;
+                          window.scrollTo({
+                            top: targetPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      }, 350);
                     }}
                     className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
@@ -103,3 +112,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
