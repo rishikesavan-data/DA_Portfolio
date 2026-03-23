@@ -33,8 +33,11 @@ const Contact = () => {
       `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`,
     );
 
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoUrl;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}&su=${subject}&body=${body}`;
+    const link = document.createElement("a");
+    link.href = gmailUrl;
+    link.target = "_blank";
+    link.click();
 
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);

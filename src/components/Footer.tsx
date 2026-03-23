@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Globe } from "lucide-react";
 const links = [
   { icon: Linkedin, href: "https://linkedin.com/in/rishikesavan-data/", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/rishikesavan-data", label: "GitHub" },
-  { icon: Mail, href: "mailto:rishikesavan.data@gmail.com", label: "Email" },
+  { icon: Mail, href: "https://mail.google.com/mail/?view=cm&fs=1&to=rishikesavan.data@gmail.com", label: "Email" },
   //{ icon: Globe, href: "#", label: "Portfolio" },
 ];
 
@@ -18,8 +18,8 @@ const Footer = () => (
           <a
             key={link.label}
             href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+            rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
             className="text-foreground hover:text-primary hover:-translate-y-0.5 transition-all"
             aria-label={link.label}
           >

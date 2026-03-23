@@ -451,11 +451,11 @@ const Timeline = () => {
                           <AnimatePresence>
                             {hoveredIndex === globalIndex && (
                               <motion.div
-                                initial={{ opacity: 0, y: localIndex === 0 ? -10 : localIndex === 2 ? 10 : 0 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: localIndex === 0 ? -10 : localIndex === 2 ? 10 : 0 }}
+                                initial={{ opacity: 0, y: localIndex === 0 ? -10 : localIndex === 2 ? 10 : "-50%" }}
+                                animate={{ opacity: 1, y: localIndex === 0 ? 0 : localIndex === 2 ? 0 : "-65%" }}
+                                exit={{ opacity: 0, y: localIndex === 0 ? -10 : localIndex === 2 ? 10 : "-50%" }}
                                 transition={{ duration: 0.2 }}
-                                className={`absolute ${isLeft ? 'md:left-1/2 md:translate-x-8' : 'md:right-1/2 md:-translate-x-8'} ${localIndex === 0 ? 'top-10' : localIndex === 2 ? 'bottom-10' : 'top-1/2 -translate-y-1/2'} w-96 max-w-[360px] z-50 bg-background border border-border/60 rounded-xl shadow-2xl p-5 pointer-events-none`}
+                                className={`absolute ${isLeft ? 'md:left-1/2 md:ml-8' : 'md:right-1/2 md:mr-8'} ${localIndex === 0 ? 'top-10' : localIndex === 2 ? 'bottom-10' : 'top-1/2'} w-96 max-w-[360px] z-50 bg-background border border-border/60 rounded-xl shadow-2xl p-5 pointer-events-none`}
                               >
                                 <div className="text-sm text-muted-foreground leading-relaxed mb-4">
                                   {Array.isArray(item.description) ? (
