@@ -35,14 +35,57 @@ This portfolio website is built with:
 - shadcn-ui
 - Firebase Hosting
 
+
 ## Using This Template
-If you want to use this portfolio as a template for your own:
-1. Fork this repository
-2. Clone it to your local machine
-3. Run npm install
-4. Run npm run dev to start local development
-5. Update the content with your own projects and information
-6. Deploy using Firebase or Lovable
+If you want to use this portfolio as a template for your own, follow these steps:
+
+### Step 1 — Fork this repository
+Click the Fork button at the top right of this GitHub repository. This creates a copy of the repository under your own GitHub account.
+
+### Step 2 — Clone it to your local machine
+Open your terminal and run:
+git clone https://github.com/YOUR_USERNAME/DA_Portfolio.git
+Replace YOUR_USERNAME with your GitHub username. This downloads the repository to your computer.
+
+### Step 3 — Install dependencies
+Navigate into the project folder:
+cd DA_Portfolio
+Then install all required packages:
+npm install
+This installs React, TypeScript, Tailwind CSS, and all other dependencies needed to run the project.
+
+### Step 4 — Start local development
+Run the development server:
+npm run dev
+Open your browser and go to http://localhost:5173 to see the website running locally on your machine.
+
+### Step 5 — Customize the content
+Update the following with your own information:
+- Your name and profile photo
+- Your About Me section
+- Your project details, descriptions, and GitHub links
+- Your skills and tools
+- Your contact information and LinkedIn URL
+
+### Step 6 — Deploy your website
+Option A — Deploy using Firebase:
+- Install Firebase CLI: npm install -g firebase-tools
+- Login: firebase login
+- Initialize: firebase init
+- Build the project: npm run build
+- Deploy: firebase deploy
+- Your website will be live at your Firebase URL
+Option B — Deploy using Lovable:
+- Go to lovable.dev
+- Import your GitHub repository
+- Click Share and then Publish
+- Your website will be live instantly
+
+### Requirements
+- Node.js version 18 or above
+- npm version 8 or above
+- A GitHub account
+- A Firebase or Lovable account for deployment
 
 ## License
 MIT License — free to use and modify.
