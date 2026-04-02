@@ -75,6 +75,7 @@ Option A — Deploy using Firebase:
 - Build the project: npm run build
 - Deploy: firebase deploy
 - Your website will be live at your Firebase URL
+
 Option B — Deploy using Lovable:
 - Go to lovable.dev
 - Import your GitHub repository
