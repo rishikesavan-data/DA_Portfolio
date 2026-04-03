@@ -29,7 +29,7 @@ const projects = [
     hasLinkedin: true,
     linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7423417371018686464/?originTrackingId=jwv8MNitJdySpg1PGSHI3A%3D%3D",
   },
-  {
+  /*{
     title: "Awesome Chocolates Dashboard",
     startDate: "Jun 2025",
     endDate: "Jul 2025",
@@ -52,7 +52,7 @@ const projects = [
     hasGithub: true,
     github: "https://github.com/rishikesavan-data/vit-asd-classifier",
     hasLinkedin: false,
-  },
+  },*/
 ];
 
 /** Returns true when viewport width < 768px (Tailwind's md breakpoint) */
@@ -109,10 +109,9 @@ const Projects = () => {
 
   // Shared button style helper
   const navBtnClass = (disabled: boolean) =>
-    `p-2 md:p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm transition-all shadow-sm ${
-      disabled
-        ? "opacity-50 cursor-not-allowed text-muted-foreground"
-        : "hover:bg-primary/10 hover:text-primary hover:border-primary/30 active:scale-95 shadow-lg shadow-primary/5"
+    `p-2 md:p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm transition-all shadow-sm ${disabled
+      ? "opacity-50 cursor-not-allowed text-muted-foreground"
+      : "hover:bg-primary/10 hover:text-primary hover:border-primary/30 active:scale-95 shadow-lg shadow-primary/5"
     }`;
 
   // Page indicator

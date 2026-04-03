@@ -2,7 +2,16 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, ExternalLink, FileText } from "lucide-react";
 
-const certifications = [
+type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+  link?: string;
+  websiteLink?: string;
+  certificatePdf?: string;
+};
+
+const certifications: Certification[] = [
   {
     title: "Deloitte Australia - Data Analytics Job Simulation",
     issuer: "Forage",
@@ -15,13 +24,13 @@ const certifications = [
     date: "Aug 2024 - Sep 2024",
     link: "/Certificate Pdf/Infosys Foundation and ICT Academy Data Analytics Course.pdf",
   },
-  {
+  /*{
     title: "Introduction to Web Development",
     issuer: "Coursera",
     date: "Jul 2023",
     websiteLink: "https://www.coursera.org/account/accomplishments/verify/H6JXJCD5ZUVS",
     certificatePdf: "/Certificate Pdf/Coursera - Introduction to Web Development Certificate.pdf",
-  },
+  },*/
   /*{
     title: "Python for Data Analysis",
     issuer: "DataCamp",

@@ -14,7 +14,7 @@ const cards = [
     icon: Target,
     title: "What I Do",
     description:
-      "I use SQL, Excel, and Power BI to clean, explore, and analyze datasets. I also build dashboards that organize data in a clear way and help highlight important information.",
+      "I use SQL, MySQL, Excel, and Power Query to clean, explore, and analyze datasets. I build DAX measures and KPI dashboards in Power BI to present insights clearly and support business decision making.",
   },
   {
     icon: Zap,
@@ -67,7 +67,7 @@ const About = () => {
           ))}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -76,7 +76,7 @@ const About = () => {
           <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
             ⚡ <span className="font-semibold text-foreground text-base">AI-Augmented Workflow</span> — I actively use AI tools to accelerate my analytics process: query optimization, faster debugging, smarter documentation, and sharper problem framing. Less time on repetition. More time on thinking.
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -24,8 +24,10 @@ const skillGroups = [
     category: "Data Analysis",
     skills: [
       { name: "SQL", icon: Database },
-      { name: "Python (Basic)", icon: Code },
+      { name: "MySQL", icon: Database },
       { name: "Excel", icon: FileSpreadsheet },
+      { name: "Power Query", icon: FileSpreadsheet },
+      { name: "DAX", icon: Code },
     ],
   },
   {
@@ -37,13 +39,11 @@ const skillGroups = [
   {
     category: "Tools",
     skills: [
-      //{ name: "Git", icon: GitBranch },
       { name: "GitHub", icon: GitBranch },
       { name: "VS Code", icon: Terminal },
-      { name: "PyCharm", icon: Terminal },
     ],
   },
-  {
+  /* {
     category: "AI Tools",
     skills: [
       { name: "ChatGPT", icon: Bot },
@@ -53,7 +53,7 @@ const skillGroups = [
       { name: "Cursor", icon: Monitor },
       { name: "Antigravity", icon: Monitor },
     ],
-  },
+  }, */
 ];
 
 const Skills = () => {
@@ -78,7 +78,7 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillGroups.map((group, gi) => (
             <motion.div
               key={group.category}

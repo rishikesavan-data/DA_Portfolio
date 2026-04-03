@@ -71,7 +71,7 @@ const timeline = [
       "Learnt the key steps of taking raw data, cleaning it, analysing it, and sharing dashboards with Power BI service.",
     skills: ["Power BI", "Data Visualization"],
   },
-  {
+  /*{
     date: "Jul 2023",
     category: "Certification",
     title: "Introduction to Web Development",
@@ -79,7 +79,7 @@ const timeline = [
     description:
       "Got comfortable building simple web pages and understanding how the front-end works. Developed basic static websites and improved comfort with front-end fundamentals.",
     skills: ["HTML", "CSS", "Web Concepts"],
-  },
+  },*/
   {
     date: "Jul 2021",
     category: "Education",
