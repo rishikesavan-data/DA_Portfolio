@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# Rishi Kesavan — Data Analyst Portfolio
+A personal portfolio website built to showcase data analytics projects, skills, and professional background. Feel free to use this as a template for your own portfolio.
+Live Website: https://rishikesavan.web.app
 
-## Project info
+## About
+I am a Fresher Data Analyst based in Chennai with hands-on experience in end-to-end data analysis using MySQL, Excel, Power Query, Power BI, and DAX.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Projects Featured
+### Telco Customer Churn Analysis
+- Analyzed 7,000+ telecom customers using SQL and Power BI
+- Uncovered 26.5% churn rate and $3M in lost revenue
+- Built a star schema data model with fact and dimension tables
+- GitHub: https://github.com/rishikesavan-data/Telco-Customer-Churn-Analysis
 
-## How can I edit this code?
+### Superstore Sales Performance Analysis
+- Analyzed 9,994 retail orders across 4 years using SQL and Power BI
+- Uncovered $2.3M in revenue, $286K in profit, and $213K in avoidable losses
+- Identified discount impact, return rates, and unprofitable products
+- GitHub: https://github.com/rishikesavan-data/Superstore-Sales-Performance-Analysis
 
-There are several ways of editing your application.
+## Skills
+- SQL | MySQL
+- Microsoft Excel | Power Query
+- Power BI | DAX
+- Data Modeling | Star Schema
+- Data Visualization | KPI Reporting
+- EDA | ETL
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
+## Tech Stack
+This portfolio website is built with:
 - React
-- shadcn-ui
+- TypeScript
+- Vite
 - Tailwind CSS
+- shadcn-ui
+- Firebase Hosting
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Using This Template
+If you want to use this portfolio as a template for your own, follow these steps:
 
-## Can I connect a custom domain to my Lovable project?
+### Step 1 — Fork this repository
+Click the Fork button at the top right of this GitHub repository. This creates a copy of the repository under your own GitHub account.
 
-Yes, you can!
+### Step 2 — Clone it to your local machine
+Open your terminal and run:
+git clone https://github.com/YOUR_USERNAME/DA_Portfolio.git
+Replace YOUR_USERNAME with your GitHub username. This downloads the repository to your computer.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Step 3 — Install dependencies
+Navigate into the project folder:
+cd DA_Portfolio
+Then install all required packages:
+npm install
+This installs React, TypeScript, Tailwind CSS, and all other dependencies needed to run the project.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Step 4 — Start local development
+Run the development server:
+npm run dev
+Open your browser and go to http://localhost:5173 to see the website running locally on your machine.
+
+### Step 5 — Customize the content
+Update the following with your own information:
+- Your name and profile photo
+- Your About Me section
+- Your project details, descriptions, and GitHub links
+- Your skills and tools
+- Your contact information and LinkedIn URL
+
+### Step 6 — Deploy your website
+Option A — Deploy using Firebase:
+- Install Firebase CLI: npm install -g firebase-tools
+- Login: firebase login
+- Initialize: firebase init
+- Build the project: npm run build
+- Deploy: firebase deploy
+- Your website will be live at your Firebase URL
+
+Option B — Deploy using Lovable:
+- Go to lovable.dev
+- Import your GitHub repository
+- Click Share and then Publish
+- Your website will be live instantly
+
+### Requirements
+- Node.js version 18 or above
+- npm version 8 or above
+- A GitHub account
+- A Firebase or Lovable account for deployment
+
+## License
+MIT License — free to use and modify.
+
+## Connect
+- LinkedIn: https://linkedin.com/in/rishikesavan-data
