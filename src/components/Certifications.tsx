@@ -16,7 +16,7 @@ const certifications: Certification[] = [
     title: "Deloitte Australia - Data Analytics Job Simulation",
     issuer: "Forage",
     date: "Jan 2026",
-    link: "/Certificate Pdf/Deloitte Australia - Data Analytics Job Simulation certificate.pdf",
+    link: "/Certificate Pdf/Deloitte Australia - Data Analytics Job Simulation.pdf",
   },
   {
     title: "Certificate Course on Data Analytics (under Infosys Foundation Finishing School for Employability Program)",

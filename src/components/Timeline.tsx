@@ -6,8 +6,8 @@ const timeline = [
   {
     date: "Jan 2026",
     category: "Certification",
-    title: "Data Analytics Virtual Internship",
-    issuedBy: "Deloitte",
+    title: "Deloitte Australia Data Analytics Job Simulation",
+    issuedBy: "Forage",
     description: [
       "Completed a Deloitte job simulation involving data analysis and forensic technology",
       "Created a data dashboard using Tableau",
