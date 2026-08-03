@@ -4,6 +4,26 @@ import { ChevronUp, ChevronDown, X } from "lucide-react";
 
 const timeline = [
   {
+    date: "Jul 2026 - Aug 2026",
+    category: "Course",
+    title: "Python for Data Analysis",
+    issuedBy: "Luke Barousse",
+    description: [
+      "Completed a hands-on Python course focused on data analysis workflows",
+      "Used Pandas for data cleaning, manipulation, and exploratory data analysis (EDA)",
+      "Built visualizations with Matplotlib and Seaborn to explore and present data",
+    ],
+    skills: [
+      "Python",
+      "Pandas",
+      "EDA",
+      "Matplotlib",
+      "Seaborn",
+      "Data Cleaning",
+      "Data Visualization",
+    ],
+  },
+  {
     date: "Jan 2026",
     category: "Certification",
     title: "Deloitte Australia Data Analytics Job Simulation",
@@ -162,10 +182,9 @@ const Timeline = () => {
 
   // Shared nav button classes
   const navBtnClass = (disabled: boolean) =>
-    `p-2 md:p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm transition-all shadow-sm ${
-      disabled
-        ? "opacity-50 cursor-not-allowed text-muted-foreground"
-        : "hover:bg-primary/10 hover:text-primary hover:border-primary/30 active:scale-95"
+    `p-2 md:p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm transition-all shadow-sm ${disabled
+      ? "opacity-50 cursor-not-allowed text-muted-foreground"
+      : "hover:bg-primary/10 hover:text-primary hover:border-primary/30 active:scale-95"
     }`;
 
   // Page counter
@@ -239,7 +258,7 @@ const Timeline = () => {
                       onClick={() => setHoveredIndex(null)}
                       className="absolute inset-0 z-40 bg-background/60 backdrop-blur-[2px]"
                     />
-                    
+
                     {/* Popup Panel */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.95, y: "-50%" }}
@@ -253,7 +272,7 @@ const Timeline = () => {
                       >
                         <X size={20} />
                       </button>
-                      
+
                       <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
                         {(() => {
                           const item = sortedTimeline[hoveredIndex];
@@ -261,7 +280,7 @@ const Timeline = () => {
                             <div className="flex flex-col">
                               <h3 className="font-display text-lg font-bold mb-1 pr-10 text-foreground">{item.title}</h3>
                               <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-4">{item.date}</p>
-                              
+
                               <div className="text-sm text-muted-foreground leading-relaxed mb-6">
                                 {Array.isArray(item.description) ? (
                                   <ul className="list-disc pl-4 space-y-1.5">
@@ -273,7 +292,7 @@ const Timeline = () => {
                                   <p>{item.description}</p>
                                 )}
                               </div>
-                              
+
                               {item.skills && (
                                 <div className="flex flex-wrap gap-1.5 mt-auto pt-4">
                                   {item.skills.map((skill) => (
@@ -322,7 +341,7 @@ const Timeline = () => {
                             {/* Left side */}
                             <div className={`w-1/2 ${isLeft ? "pr-4" : "pl-4"}`}>
                               {isLeft && (
-                                <div 
+                                <div
                                   className="text-right flex justify-end cursor-pointer"
                                   onClick={(e) => handleMobileToggle(e, globalIndex)}
                                 >
@@ -348,7 +367,7 @@ const Timeline = () => {
                             {/* Right side */}
                             <div className={`w-1/2 ${!isLeft ? "pl-4" : "pr-4"}`}>
                               {!isLeft && (
-                                <div 
+                                <div
                                   className="text-left inline-block cursor-pointer"
                                   onClick={(e) => handleMobileToggle(e, globalIndex)}
                                 >

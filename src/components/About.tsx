@@ -14,7 +14,7 @@ const cards = [
     icon: Target,
     title: "What I Do",
     description:
-      "I use SQL, MySQL, Excel, and Power Query to clean, explore, and analyze datasets. I build DAX measures and KPI dashboards in Power BI to present insights clearly and support business decision making.",
+      "I use SQL, MySQL, Excel, Power Query, and Python (Pandas) to clean, explore, and analyze datasets. I build DAX measures and KPI dashboards in Power BI, and use Matplotlib/Seaborn for visual exploration, to present insights clearly and support business decision making.",
   },
   {
     icon: Zap,

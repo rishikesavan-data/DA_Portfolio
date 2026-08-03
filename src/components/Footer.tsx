@@ -1,7 +1,7 @@
 import { Github, Linkedin, Mail, Globe } from "lucide-react";
 
 const links = [
-  { icon: Linkedin, href: "https://linkedin.com/in/rishikesavan-data/", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/rishikesavan-data/", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/rishikesavan-data", label: "GitHub" },
   { icon: Mail, href: "https://mail.google.com/mail/?view=cm&fs=1&to=rishikesavan.data@gmail.com", label: "Email" },
   //{ icon: Globe, href: "#", label: "Portfolio" },

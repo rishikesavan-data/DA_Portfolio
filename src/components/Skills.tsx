@@ -9,6 +9,7 @@ import {
   Terminal,
   FileSpreadsheet,
   LineChart,
+  PieChart,
   BookOpen,
   Bot,
   Sparkles,
@@ -23,9 +24,9 @@ const skillGroups = [
   {
     category: "Data Analysis",
     skills: [
-      { name: "SQL", icon: Database },
-      { name: "MySQL", icon: Database },
+      { name: "SQL (MySQL)", icon: Database },
       { name: "Excel", icon: FileSpreadsheet },
+      { name: "Python (Pandas)", icon: Code },
       { name: "Power Query", icon: FileSpreadsheet },
       { name: "DAX", icon: Code },
     ],
@@ -34,6 +35,8 @@ const skillGroups = [
     category: "Visualization",
     skills: [
       { name: "Power BI", icon: BarChart3 },
+      { name: "Matplotlib", icon: LineChart },
+      { name: "Seaborn", icon: PieChart },
     ],
   },
   {
