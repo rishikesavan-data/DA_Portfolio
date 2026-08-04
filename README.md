@@ -3,12 +3,12 @@ A personal portfolio website built to showcase data analytics projects, skills, 
 Live Website: https://rishikesavan.web.app
 
 ## About
-I am a Fresher Data Analyst based in Chennai with hands-on experience in end-to-end data analysis using MySQL, Excel, Power Query, Power BI, and DAX.
+I am a Fresher Data Analyst based in Chennai with hands-on experience in end-to-end data analysis using MySQL, Excel, Power Query, Power BI, Python (Pandas, Matplotlib, and seaborn), and DAX.
 
 ## Projects Featured
 ### Telco Customer Churn Analysis
 - Analyzed 7,000+ telecom customers using SQL and Power BI
-- Uncovered 26.5% churn rate and $3M in lost revenue
+- Uncovered a 26.5% churn rate and $3M in lost revenue
 - Built a star schema data model with fact and dimension tables
 - GitHub: https://github.com/rishikesavan-data/Telco-Customer-Churn-Analysis
 
@@ -22,6 +22,7 @@ I am a Fresher Data Analyst based in Chennai with hands-on experience in end-to-
 - SQL | MySQL
 - Microsoft Excel | Power Query
 - Power BI | DAX
+- Python | Pandas | Matplotlib | Seaborn
 - Data Modeling | Star Schema
 - Data Visualization | KPI Reporting
 - EDA | ETL
@@ -70,7 +71,7 @@ Update the following with your own information:
 ### Step 6 — Deploy your website
 Option A — Deploy using Firebase:
 - Install Firebase CLI: npm install -g firebase-tools
-- Login: firebase login
+- Log in: firebase login
 - Initialize: firebase init
 - Build the project: npm run build
 - Deploy: firebase deploy
