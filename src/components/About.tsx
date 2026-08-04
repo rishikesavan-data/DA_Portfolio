@@ -74,7 +74,8 @@ const About = () => {
           className="mt-6 w-full text-center glass-panel p-6 glow-border"
         >
           <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-            ⚡ <span className="font-semibold text-foreground text-base">AI-Augmented Workflow</span> — I actively use AI tools to accelerate my analytics process: query optimization, faster debugging, smarter documentation, and sharper problem framing. Less time on repetition. More time on thinking.
+            ⚡ <span className="font-semibold text-foreground text-base">AI-Augmented Workflow</span> — 
+            I actively use AI tools to accelerate my analytics process: query optimization, faster debugging, smarter documentation, and sharper problem framing. Less time on repetition. More time on thinking.
           </p>
         </motion.div> */}
       </div>
